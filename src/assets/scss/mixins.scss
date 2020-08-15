@@ -1,0 +1,13 @@
+@mixin ele-font($family) {
+  font-family: $family;
+}
+@mixin media-tablet {
+  @media (min-width: 700px) and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin media-mobile {
+  @media (max-width: 700px) {
+    @content;
+  }
+}

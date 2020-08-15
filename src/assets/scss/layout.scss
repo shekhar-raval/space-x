@@ -1,0 +1,106 @@
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
+::-webkit-scrollbar-thumb {
+   min-width: 70px;
+   min-height: 70px;
+   border-radius: 50px;
+   background: rgba(0, 0, 0, .13);
+}
+::-webkit-scrollbar-thumb:hover {
+   background: rgba(0, 0, 0, .23)
+}
+::-webkit-scrollbar-track {
+   background: transparent
+}
+
+.application-container {
+   max-width: 1000px;
+   margin: 0 auto;
+   background: rgba(9, 30, 66, 0.04);
+   @include media-tablet {
+      max-width: 620px;
+   }
+   @include media-mobile {
+      padding: 0 61px;
+   }
+   .filter__box {
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 3px;
+      width: 130px;
+      @include media-mobile {
+         margin-bottom: 10px;
+         width: auto;
+      }
+      .label__underlined {
+         text-align: center;
+         border-bottom: 1px solid rgba(0, 0, 0, .23);
+         margin: 0 10px;
+         font-size: 12px;
+      }
+      .label__container {
+         padding: 10px 0;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         .year__label {
+            background-color: #00b800;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 3px 5px;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 12px;
+            &:hover {
+               opacity: 1;
+            }
+         }
+         .year__label__solid {
+            background-color: #066106;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 3px 5px;
+            color: #fff;
+            cursor: pointer;
+            opacity: 1;
+            font-size: 12px;
+            &:hover {
+               opacity: 1;
+            }
+         }
+      }
+   }
+   .spaceX-container {
+      @include media-mobile {
+         flex-direction: column;
+      }
+   }
+   .space-widgets-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      @include media-tablet {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @include media-mobile {
+         grid-template-columns: repeat(1, 1fr);
+         padding-left: 0;
+      }
+      .spaceX__widget {
+         background-color: #fff;
+         padding: 10px;
+         border-radius: 5px;
+         .spaceX_image {
+            background-color: rgba(9, 30, 66, 0.04);
+            padding: 10px;
+            text-align: center;
+            img {
+               width: 100px;
+               height: 100px;
+            }
+         }
+      }
+   }
+}
