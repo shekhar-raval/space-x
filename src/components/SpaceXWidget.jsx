@@ -4,7 +4,7 @@ const SpaceXWidget = ({ data }) => {
   return (
     <div className="spaceX__widget">
       <div className="spaceX_image">
-        <img src={data.links.mission_patch} alt="" />
+        <img src={data.links.mission_patch} alt="space_logo" />
       </div>
       <div className="spaceX__title an-16 medium-text primary--text py10">
         {data.mission_name} {`#${data.flight_number}`}

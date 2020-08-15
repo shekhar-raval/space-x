@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { withRouter } from "react-router-dom";
 import "assets/scss/app.scss";
-
-import FilterBox from "components/FilterBox";
 import SpaceXWidget from "components/SpaceXWidget";
 import { getQueryString } from "Helper";
+
+const FilterBox = React.lazy(() => import("components/FilterBox"));
 
 const BASE_API = 'https://api.spaceXdata.com/v3/launches?limit=100'
 
@@ -51,28 +51,30 @@ function App(props) {
   }
 
   return (
-    <div className="application-container pa10">
-      <div className="an-18 bold-text pb10">SpaceX Launch Program</div>
-      <div className="flex-x spaceX-container">
-        <FilterBox
-          onLaunchSuccessClick={onLaunchSuccessClick}
-          onLandSuccessClick={onLandSuccessClick}
-          onYearClick={onYearClick}
-        />
-        <div className="space-widgets-container flex-1 pl10">
-          {
-            !loading ?
-            data.length ?  
-            data.map((d, i) => (<SpaceXWidget key={i} data={d} />)) :
-            <div className="text-center">No Mission Found !!!</div>:
-            <div className="text-center">Getting data please wait...</div>
-          }
+    <main className="application-container pa10">
+      <Suspense fallback={<h1>Loading…</h1>}>
+        <div className="an-18 bold-text pb10">SpaceX Launch Program</div>
+        <div className="flex-x spaceX-container">
+          <FilterBox
+            onLaunchSuccessClick={onLaunchSuccessClick}
+            onLandSuccessClick={onLandSuccessClick}
+            onYearClick={onYearClick}
+          />
+          <div className="space-widgets-container flex-1 pl10">
+            {
+              !loading ?
+                data.length ?
+                  data.map((d, i) => (<SpaceXWidget key={i} data={d} />)) :
+                  <div className="text-center">No Mission Found !!!</div> :
+                <div className="text-center">Getting data please wait...</div>
+            }
+          </div>
         </div>
-      </div>
-      <div className="text-center py10">
-        <strong>Develop by:</strong> <span>Shekhar Raval</span>
-      </div>
-    </div>
+        <div className="text-center py10">
+          <strong>Develop by:</strong> <span>Shekhar Raval</span>
+        </div>
+      </Suspense>
+    </main>
   )
 }
 

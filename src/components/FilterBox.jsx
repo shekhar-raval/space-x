@@ -2,12 +2,10 @@ import React from "react";
 import { withRouter } from 'react-router-dom';
 import { getQueryObj } from "Helper";
 
-const FilterBox = (props) => {
+const FilterBox = React.memo((props) => {
   const { location: { search } } = props;
   const params = search.split('?')[1];
   const data = params ? getQueryObj(params) : null;
-  console.log('DATA', data, params);
-  console.log(data);
   const years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
   return (
     <div className="filter__box fill-height">
@@ -59,6 +57,6 @@ const FilterBox = (props) => {
       </div>
     </div >
   )
-}
+});
 
 export default withRouter(FilterBox);
