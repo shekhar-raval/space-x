@@ -1,5 +1,8 @@
 # Guide to start app
 
+## Live demo on
+[Click here to see demo](https://x-space.netlify.app/)
+
 ## Prerequisite
 - Nodejs version >= 10.0.0
 - npm version >= 6.0.0
