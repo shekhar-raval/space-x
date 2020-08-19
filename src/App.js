@@ -51,7 +51,7 @@ function App(props) {
   }
 
   return (
-    <main className="application-container pa10">
+    <div className="application-container pa10" data-test="appComponent">
       <Suspense fallback={<h1>Loading…</h1>}>
         <div className="an-18 bold-text pb10">SpaceX Launch Program</div>
         <div className="flex-x spaceX-container">
@@ -74,7 +74,7 @@ function App(props) {
           <strong>Develop by:</strong> <span>Shekhar Raval</span>
         </div>
       </Suspense>
-    </main>
+    </div>
   )
 }
 
